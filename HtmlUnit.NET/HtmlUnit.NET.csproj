@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3F126F4A-1F01-463A-BF0A-CE9D02CE87B7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HtmlUnit</RootNamespace>
+    <AssemblyName>HtmlUnit.NET</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="com.gargoylesoftware.htmlunit.util\Attribute.cs" />
+    <Compile Include="com.gargoylesoftware.htmlunit.util\EncodingSniffer.cs" />
+    <Compile Include="com.gargoylesoftware.htmlunit.util\NameValuePair.cs" />
+    <Compile Include="com.gargoylesoftware.htmlunit.xml\XmlUtil.cs" />
+    <Compile Include="com.gargoylesoftware.htmlunit\AbstractPage.cs" />
+    <Compile Include="com.gargoylesoftware.htmlunit\DefaultPageCreator.cs" />
+    <Compile Include="com.gargoylesoftware.htmlunit\HttpMethod.cs" />
+    <Compile Include="com.gargoylesoftware.htmlunit\IPage.cs" />
+    <Compile Include="com.gargoylesoftware.htmlunit\IPageCreator.cs" />
+    <Compile Include="com.gargoylesoftware.htmlunit\PageType.cs" />
+    <Compile Include="com.gargoylesoftware.htmlunit\WebRequest.cs" />
+    <Compile Include="com.gargoylesoftware.htmlunit\WebResponse.cs" />
+    <Compile Include="com.gargoylesoftware.htmlunit\WebResponseData.cs" />
+    <Compile Include="com.gargoylesoftware.htmlunit\WebWindow.cs" />
+    <Compile Include="Helpers\InputStream.cs" />
+    <Compile Include="Helpers\InputStreamReader.cs" />
+    <Compile Include="Helpers\IOUtils.cs" />
+    <Compile Include="Helpers\Log.cs" />
+    <Compile Include="Helpers\LogFactory.cs" />
+    <Compile Include="Helpers\TextUtil.cs" />
+    <Compile Include="Helpers\URL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
