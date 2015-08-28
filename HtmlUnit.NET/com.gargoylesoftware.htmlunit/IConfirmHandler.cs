@@ -26,24 +26,19 @@ using System.Text;
 namespace HtmlUnit.com.gargoylesoftware.htmlunit
 {
     /// <summary>
-    /// Something that knows how to create a page object. It is also the responsibility
-    /// of the page creator to establish the relationship between the <code>webWindow</code>
-    /// and the page, usually by calling {@link WebWindow#setEnclosedPage(Page)}. This should
-    /// be done as early as possible, e.g. to allow for re-loading of pages during page parsing.
-    /// 
+    /// A handler for the JavaScript function <tt>window.confirm()</tt>. Confirms
+    /// are triggered when the JavaScript function <tt>window.confirm()</tt> is invoked.
     /// @version $Revision: 10103 $
     /// @author <a href="mailto:mbowler@GargoyleSoftware.com">Mike Bowler</a>
-    /// @author <a href="mailto:cse@dynabean.de">Christian Sell</a>
     /// </summary>
-    public interface IPageCreator
+    public interface IConfirmHandler
     {
         /// <summary>
-        /// Create a Page object for the specified web response.
-        /// @exception IOException If an io problem occurs
+        /// Handles a confirm for the specified page.
         /// </summary>
-        /// <param name="webResponse">the response from the server</param>
-        /// <param name="webWindow">the window that this page will be loaded into</param>
-        /// <returns>the new page</returns>
-        public IPage CreatePage(WebResponse webResponse, IWebWindow webWindow);
+        /// <param name="page">the page on which the confirm occurred</param>
+        /// <param name="message">the message in the confirm</param>
+        /// <returns><tt>true</tt> if we are simulating clicking the OK button, <tt>false</tt> if we are simulating clicking the Cancel button</returns>
+        bool HandleConfirm(IPage page, String message);
     }
 }

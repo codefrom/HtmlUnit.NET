@@ -23,6 +23,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using HtmlUnit.com.gargoylesoftware.htmlunit.util;
+using HtmlUnit.com.gargoylesoftware.htmlunit.xml;
 using HtmlUnit.Helpers;
 
 namespace HtmlUnit.com.gargoylesoftware.htmlunit

@@ -32,7 +32,7 @@ namespace HtmlUnit.com.gargoylesoftware.htmlunit
     public class AbstractPage : IPage
     {
         private WebResponse webResponse_;
-        private WebWindow enclosingWindow_;
+        private IWebWindow enclosingWindow_;
 
         /**
          * Returns the web response that was originally used to create this page.
@@ -50,7 +50,7 @@ namespace HtmlUnit.com.gargoylesoftware.htmlunit
         /// <summary>
         /// The window that this page is sitting inside.
         /// </summary>
-        public WebWindow EnclosingWindow 
+        public IWebWindow EnclosingWindow 
         {
             get
             {
@@ -74,7 +74,7 @@ namespace HtmlUnit.com.gargoylesoftware.htmlunit
         /// </summary>
         /// <param name="webResponse">the response from the server</param>
         /// <param name="enclosingWindow">the window that holds the page</param>
-        public AbstractPage(WebResponse webResponse, WebWindow enclosingWindow)
+        public AbstractPage(WebResponse webResponse, IWebWindow enclosingWindow)
         {
             webResponse_ = webResponse;
             enclosingWindow_ = enclosingWindow;

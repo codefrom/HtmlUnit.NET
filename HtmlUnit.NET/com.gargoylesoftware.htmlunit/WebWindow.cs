@@ -33,7 +33,7 @@ namespace HtmlUnit.com.gargoylesoftware.htmlunit
     /// @author David D. Kilzer
     /// </summary>
     [Serializable]
-    public class WebWindow
+    public interface IWebWindow
     {
         /// <summary>
         /// The name of this window.
@@ -56,7 +56,7 @@ namespace HtmlUnit.com.gargoylesoftware.htmlunit
         /// is a top level window, then return this window.
         /// </summary>
         /// <returns></returns>
-        public IWebWindow getTopWindow { get; }
+        public IWebWindow TopWindow { get; }
 
         /// <summary>
         /// The web client that "owns" this window.

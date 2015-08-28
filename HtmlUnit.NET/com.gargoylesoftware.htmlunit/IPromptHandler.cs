@@ -26,24 +26,19 @@ using System.Text;
 namespace HtmlUnit.com.gargoylesoftware.htmlunit
 {
     /// <summary>
-    /// Something that knows how to create a page object. It is also the responsibility
-    /// of the page creator to establish the relationship between the <code>webWindow</code>
-    /// and the page, usually by calling {@link WebWindow#setEnclosedPage(Page)}. This should
-    /// be done as early as possible, e.g. to allow for re-loading of pages during page parsing.
-    /// 
+    /// A handler for JavaScript window.prompt(). Confirms are triggered when the JavaScript
+    /// method Window.prompt() is called.
     /// @version $Revision: 10103 $
     /// @author <a href="mailto:mbowler@GargoyleSoftware.com">Mike Bowler</a>
-    /// @author <a href="mailto:cse@dynabean.de">Christian Sell</a>
     /// </summary>
-    public interface IPageCreator
+    public class IPromptHandler
     {
         /// <summary>
-        /// Create a Page object for the specified web response.
-        /// @exception IOException If an io problem occurs
+        /// Handle a call to Window.prompt() for the given page.
         /// </summary>
-        /// <param name="webResponse">the response from the server</param>
-        /// <param name="webWindow">the window that this page will be loaded into</param>
-        /// <returns>the new page</returns>
-        public IPage CreatePage(WebResponse webResponse, IWebWindow webWindow);
+        /// <param name="page">the page on which the prompt occurred</param>
+        /// <param name="message">the message in the prompt</param>
+        /// <returns>the value typed in or null if the user pressed cancel</returns>
+        public String HandlePrompt(IPage page, String message);
     }
 }

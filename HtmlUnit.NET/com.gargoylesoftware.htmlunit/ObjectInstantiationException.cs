@@ -18,36 +18,30 @@
  * C# fork v0.1
  * 
  */
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using HtmlUnit.Helpers;
+
 namespace HtmlUnit.com.gargoylesoftware.htmlunit
 {
     /// <summary>
-    /// An abstract page that represents some content returned from a server.
-    /// @version $Revision: 10875 $
+    /// Thrown if an object could not be instantiated for some reason.
+    /// @version $Revision: 10103 $
     /// @author <a href="mailto:mbowler@GargoyleSoftware.com">Mike Bowler</a>
-    /// @author David K. Taylor
-    /// @author Marc Guillemot
-    /// @author Ronald Brill
+    /// @author Ahmed Ashour
     /// </summary>
-    public interface IPage {
+    public class ObjectInstantiationException : SystemException
+    {
         /// <summary>
-        /// Initialize this page.
-        /// This method gets called when a new page is loaded and you should probably never
-        /// need to call it directly.
-        /// @throws IOException if an IO problem occurs
+        /// Creates a new instance.
         /// </summary>
-        void Initialize();
-
-        /// <summary>
-        /// Clean up this page.
-        /// This method gets called by the web client when an other page is loaded in the window
-        /// and you should probably never need to call it directly
-        /// </summary>
-        void CleanUp();
-
-        public WebResponse WebResponse { get; }
-        public IWebWindow EnclosingWindow { get; }
-        public URL Url { get; }
+        /// <param name="message">a message explaining the failure</param>
+        /// <param name="cause">the exception that was thrown</param>
+        public ObjectInstantiationException(String message, Exception cause) :
+            base(message, cause)
+        {
+        }
     }
 }

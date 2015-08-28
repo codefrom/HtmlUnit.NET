@@ -1,0 +1,56 @@
+com.gargoylesoftware.htmlunit\                      -
+  AbstractPage.cs                               +
+  AjaxController                                +
+  IAlertHandler                                 +
+  IAppletConfirmHandler                         +
+  IStatusHandler                                +
+  IOnbeforeunloadHandler                        +
+  IIncorrectnessListener                        +
+  ObjectInstantiationException                  +
+  IPromptHandler                                +
+  IWebConnection                                +
+  IConfirmHandler                               +
+  WebWindowNotFoundException                    +
+  IRefreshHandler                               +
+  SilentCssErrorHandler                         -
+  IWebWindowListener                            +
+  WebResponseFromCache                          +
+  WebWindowAdapter                              +
+  TextPage                                      +
+  JavaScriptPage                                +
+  UnexpectedPage                                +
+  CollectingAlertHandler                        +
+  NiceRefreshHandler                            +
+  ElementNotFoundException                      +
+  ThreadedRefreshHandler                        +-
+  FormEncodingType                              +
+  FailingHttpStatusCodeException                +
+  DefaultCssErrorHandler                        +
+  ImmediateRefreshHandler                       +
+  DialogWindow                                  +
+  WebWindowImpl                                 +
+  
+  DefaultPageCreator.cs                         -
+  HttpMethod.cs                                 +
+  IPage.cs                                      +
+  IPageCreator.cs                               +
+  PageType.cs                                   +
+  WebRequest.cs                                 -
+  WebResponse.cs                                +
+  WebResponseData.cs                            -
+  IWebWindow.cs                                  -
+com.gargoylesoftware.htmlunit.util\                 -
+  Attribute.cs                                  +
+  EncodingSniffer.cs                            -
+  NameValuePair.cs                              -
+com.gargoylesoftware.htmlunit.xml\                  -
+  TrackBlankContentReader.cs                    +
+  XmlUtil.cs                                    -
+Helpers\                                            -
+  InputStream.cs                                +
+  InputStreamReader.cs                          +
+  IOUtils.cs                                    +
+  Log.cs                                        +
+  LogFactory.cs                                 +
+  TextUtil.cs                                   +
+  URL.cs                                        +

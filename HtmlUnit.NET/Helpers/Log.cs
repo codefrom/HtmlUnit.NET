@@ -40,5 +40,9 @@ namespace HtmlUnit.Helpers
         public void Debug(string message)
         { 
         }
+
+        public void Error(string message, Exception e)
+        {
+        }
     }
 }

@@ -18,36 +18,37 @@
  * C# fork v0.1
  * 
  */
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-using HtmlUnit.Helpers;
 namespace HtmlUnit.com.gargoylesoftware.htmlunit
 {
     /// <summary>
-    /// An abstract page that represents some content returned from a server.
-    /// @version $Revision: 10875 $
+    /// A listener for WebWindowEvent's.
+    /// @version $Revision: 10905 $
     /// @author <a href="mailto:mbowler@GargoyleSoftware.com">Mike Bowler</a>
-    /// @author David K. Taylor
-    /// @author Marc Guillemot
-    /// @author Ronald Brill
     /// </summary>
-    public interface IPage {
+    public class IWebWindowListener
+    {
         /// <summary>
-        /// Initialize this page.
-        /// This method gets called when a new page is loaded and you should probably never
-        /// need to call it directly.
-        /// @throws IOException if an IO problem occurs
+        /// A web window has been opened.
         /// </summary>
-        void Initialize();
+        /// <param name="e">the event (the oldPage and newPage properties will be {@code null} because the event is generated when the window is opened before the content is loaded)</param>
+        public void WebWindowOpened(WebWindowEvent e);
+
 
         /// <summary>
-        /// Clean up this page.
-        /// This method gets called by the web client when an other page is loaded in the window
-        /// and you should probably never need to call it directly
+        /// The contents of a web window has been changed.
         /// </summary>
-        void CleanUp();
+        /// <param name="e">the event</param>
+        public void WebWindowContentChanged(WebWindowEvent e);
 
-        public WebResponse WebResponse { get; }
-        public IWebWindow EnclosingWindow { get; }
-        public URL Url { get; }
+        /// <summary>
+        /// A web window has been closed.
+        /// </summary>
+        /// <param name="e">the event</param>
+        public void WebWindowClosed(WebWindowEvent e);
     }
 }

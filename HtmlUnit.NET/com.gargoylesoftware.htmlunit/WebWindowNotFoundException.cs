@@ -18,36 +18,42 @@
  * C# fork v0.1
  * 
  */
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-using HtmlUnit.Helpers;
 namespace HtmlUnit.com.gargoylesoftware.htmlunit
 {
     /// <summary>
-    /// An abstract page that represents some content returned from a server.
-    /// @version $Revision: 10875 $
+    /// Exception to indicate that no {@link WebWindow} could be found that matched
+    /// a given name.
+    /// @version $Revision: 9837 $
     /// @author <a href="mailto:mbowler@GargoyleSoftware.com">Mike Bowler</a>
-    /// @author David K. Taylor
-    /// @author Marc Guillemot
-    /// @author Ronald Brill
     /// </summary>
-    public interface IPage {
-        /// <summary>
-        /// Initialize this page.
-        /// This method gets called when a new page is loaded and you should probably never
-        /// need to call it directly.
-        /// @throws IOException if an IO problem occurs
-        /// </summary>
-        void Initialize();
+    public class WebWindowNotFoundException : SystemException
+    {
+        private readonly String name_;
 
         /// <summary>
-        /// Clean up this page.
-        /// This method gets called by the web client when an other page is loaded in the window
-        /// and you should probably never need to call it directly
+        /// Creates an instance.
         /// </summary>
-        void CleanUp();
+        /// <param name="name">the name that was searched by</param>
+        public WebWindowNotFoundException(String name) :
+            base("Searching for [" + name + "]")
+        {
+            name_ = name;
+        }
 
-        public WebResponse WebResponse { get; }
-        public IWebWindow EnclosingWindow { get; }
-        public URL Url { get; }
+        /// <summary>
+        /// The name of the {@link WebWindow} that wasn't found.
+        /// </summary>
+        public String Name
+        {
+            get
+            {
+                return name_;
+            }
+        }
     }
 }

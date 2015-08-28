@@ -13,5 +13,10 @@ namespace HtmlUnit.Helpers
 {
     public class URL
     {
+        public string ToExternalForm()
+        {
+            // TODO : IMPLEMENT !
+            throw new NotImplementedException();
+        }
     }
 }

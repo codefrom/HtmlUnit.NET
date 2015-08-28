@@ -126,7 +126,7 @@ namespace HtmlUnit.com.gargoylesoftware.htmlunit
     /// <param name="webResponse">the response from the server</param>
     /// <param name="webWindow">the window that this page will be loaded into</param>
     /// <returns>the new page object</returns>
-    public IPage CreatePage(WebResponse webResponse, WebWindow webWindow) 
+    public IPage CreatePage(WebResponse webResponse, IWebWindow webWindow) 
     {
         String contentType = DetermineContentType(webResponse.GetContentType().ToLower(), // TODO : Locale.ENGLISH
             webResponse.GetContentAsStream());
@@ -245,7 +245,7 @@ namespace HtmlUnit.com.gargoylesoftware.htmlunit
     /// <param name="webResponse">the page's source</param>
     /// <param name="webWindow">the WebWindow to place the HtmlPage in</param>
     /// <returns>the newly created HtmlPage</returns>
-    protected HtmlPage CreateHtmlPage(WebResponse webResponse, WebWindow webWindow) 
+    protected HtmlPage CreateHtmlPage(WebResponse webResponse, IWebWindow webWindow) 
     {
         return HTMLParser.parseHtml(webResponse, webWindow);
     }
@@ -257,7 +257,7 @@ namespace HtmlUnit.com.gargoylesoftware.htmlunit
     /// <param name="webResponse">the page's source</param>
     /// <param name="webWindow">the WebWindow to place the HtmlPage in</param>
     /// <returns>the newly created XHtmlPage</returns>
-    protected XHtmlPage CreateXHtmlPage(WebResponse webResponse, WebWindow webWindow)
+    protected XHtmlPage CreateXHtmlPage(WebResponse webResponse, IWebWindow webWindow)
     {
         return HTMLParser.parseXHtml(webResponse, webWindow);
     }
@@ -268,7 +268,7 @@ namespace HtmlUnit.com.gargoylesoftware.htmlunit
     /// <param name="webResponse">the page's source</param>
     /// <param name="webWindow">the WebWindow to place the JavaScriptPage in</param>
     /// <returns>the newly created JavaScriptPage</returns>
-    protected JavaScriptPage CreateJavaScriptPage(WebResponse webResponse, WebWindow webWindow) {
+    protected JavaScriptPage CreateJavaScriptPage(WebResponse webResponse, IWebWindow webWindow) {
         JavaScriptPage newPage = new JavaScriptPage(webResponse, webWindow);
         webWindow.EnclosedPage = newPage;
         return newPage;
@@ -280,7 +280,7 @@ namespace HtmlUnit.com.gargoylesoftware.htmlunit
     /// <param name="webResponse">the page's source</param>
     /// <param name="webWindow">the WebWindow to place the TextPage in</param>
     /// <returns>the newly created TextPage</returns>
-    protected TextPage CreateTextPage(WebResponse webResponse, WebWindow webWindow) {
+    protected TextPage CreateTextPage(WebResponse webResponse, IWebWindow webWindow) {
         TextPage newPage = new TextPage(webResponse, webWindow);
         webWindow.EnclosedPage = newPage;
         return newPage;
@@ -292,7 +292,7 @@ namespace HtmlUnit.com.gargoylesoftware.htmlunit
     /// <param name="webResponse">the page's source</param>
     /// <param name="webWindow">the WebWindow to place the UnexpectedPage in</param>
     /// <returns>the newly created UnexpectedPage</returns>
-    protected UnexpectedPage CreateUnexpectedPage(WebResponse webResponse, WebWindow webWindow) {
+    protected UnexpectedPage CreateUnexpectedPage(WebResponse webResponse, IWebWindow webWindow) {
         UnexpectedPage newPage = new UnexpectedPage(webResponse, webWindow);
         webWindow.EnclosedPage = newPage;
         return newPage;
@@ -305,7 +305,7 @@ namespace HtmlUnit.com.gargoylesoftware.htmlunit
     /// <param name="webResponse">the page's source</param>
     /// <param name="webWindow">the WebWindow to place the TextPage in</param>
     /// <returns>the newly created TextPage</returns>
-    protected SgmlPage CreateXmlPage(WebResponse webResponse, WebWindow webWindow)
+    protected SgmlPage CreateXmlPage(WebResponse webResponse, IWebWindow webWindow)
     {
         SgmlPage page = new XmlPage(webResponse, webWindow);
         if (IsSvg(page)) {

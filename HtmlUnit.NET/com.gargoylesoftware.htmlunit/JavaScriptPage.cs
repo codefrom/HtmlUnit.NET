@@ -18,36 +18,41 @@
  * C# fork v0.1
  * 
  */
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-using HtmlUnit.Helpers;
 namespace HtmlUnit.com.gargoylesoftware.htmlunit
 {
     /// <summary>
-    /// An abstract page that represents some content returned from a server.
-    /// @version $Revision: 10875 $
+    /// A generic page that will be returned for JavaScript content.
+    /// Specifically any content types of {@code text/javascript}.
+    /// @version $Revision: 10913 $
     /// @author <a href="mailto:mbowler@GargoyleSoftware.com">Mike Bowler</a>
     /// @author David K. Taylor
-    /// @author Marc Guillemot
     /// @author Ronald Brill
+    /// @author Ahmed Ashour
     /// </summary>
-    public interface IPage {
+    public class JavaScriptPage : AbstractPage
+    {
         /// <summary>
-        /// Initialize this page.
-        /// This method gets called when a new page is loaded and you should probably never
-        /// need to call it directly.
-        /// @throws IOException if an IO problem occurs
+        /// Creates an instance.
         /// </summary>
-        void Initialize();
+        /// <param name="webResponse">the response from the server</param>
+        /// <param name="enclosingWindow">the window that holds the page</param>
+        public JavaScriptPage(WebResponse webResponse, IWebWindow enclosingWindow) :
+            base(webResponse, enclosingWindow)
+        {
+        }
 
         /// <summary>
-        /// Clean up this page.
-        /// This method gets called by the web client when an other page is loaded in the window
-        /// and you should probably never need to call it directly
+        /// Returns the content of the page.
         /// </summary>
-        void CleanUp();
-
-        public WebResponse WebResponse { get; }
-        public IWebWindow EnclosingWindow { get; }
-        public URL Url { get; }
+        /// <returns>the content of the page</returns>
+        public String GetContent()
+        {
+            return WebResponse.GetContentAsString();
+        }
     }
 }

@@ -18,36 +18,28 @@
  * C# fork v0.1
  * 
  */
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-using HtmlUnit.Helpers;
 namespace HtmlUnit.com.gargoylesoftware.htmlunit
 {
     /// <summary>
-    /// An abstract page that represents some content returned from a server.
-    /// @version $Revision: 10875 $
+    /// An object which handles the actual communication portion of page retrieval/submission.
+    /// @version $Revision: 9837 $
     /// @author <a href="mailto:mbowler@GargoyleSoftware.com">Mike Bowler</a>
-    /// @author David K. Taylor
+    /// @author Daniel Gredler
     /// @author Marc Guillemot
-    /// @author Ronald Brill
     /// </summary>
-    public interface IPage {
+    public interface IWebConnection
+    {
         /// <summary>
-        /// Initialize this page.
-        /// This method gets called when a new page is loaded and you should probably never
-        /// need to call it directly.
-        /// @throws IOException if an IO problem occurs
+        /// Submits a request and retrieves a response.
+        /// @exception IOException if an IO error occurs
         /// </summary>
-        void Initialize();
-
-        /// <summary>
-        /// Clean up this page.
-        /// This method gets called by the web client when an other page is loaded in the window
-        /// and you should probably never need to call it directly
-        /// </summary>
-        void CleanUp();
-
-        public WebResponse WebResponse { get; }
-        public IWebWindow EnclosingWindow { get; }
-        public URL Url { get; }
+        /// <param name="request">the request</param>
+        /// <returns>the response to the request defined by the specified request</returns>
+        public WebResponse GetResponse(WebRequest request);
     }
 }

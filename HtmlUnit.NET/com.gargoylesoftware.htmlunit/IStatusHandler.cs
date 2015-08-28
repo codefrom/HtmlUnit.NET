@@ -26,24 +26,17 @@ using System.Text;
 namespace HtmlUnit.com.gargoylesoftware.htmlunit
 {
     /// <summary>
-    /// Something that knows how to create a page object. It is also the responsibility
-    /// of the page creator to establish the relationship between the <code>webWindow</code>
-    /// and the page, usually by calling {@link WebWindow#setEnclosedPage(Page)}. This should
-    /// be done as early as possible, e.g. to allow for re-loading of pages during page parsing.
-    /// 
-    /// @version $Revision: 10103 $
+    /// A handler for changes to <tt>window.status</tt>.
+    /// @version $Revision: 9837 $
     /// @author <a href="mailto:mbowler@GargoyleSoftware.com">Mike Bowler</a>
-    /// @author <a href="mailto:cse@dynabean.de">Christian Sell</a>
     /// </summary>
-    public interface IPageCreator
+    public class IStatusHandler
     {
         /// <summary>
-        /// Create a Page object for the specified web response.
-        /// @exception IOException If an io problem occurs
+        /// Handles a change to <tt>window.status</tt>.
         /// </summary>
-        /// <param name="webResponse">the response from the server</param>
-        /// <param name="webWindow">the window that this page will be loaded into</param>
-        /// <returns>the new page</returns>
-        public IPage CreatePage(WebResponse webResponse, IWebWindow webWindow);
+        /// <param name="page">the page on which the status change occurred</param>
+        /// <param name="message">the new status message</param>
+        public void StatusMessageChanged(IPage page, String message);
     }
 }

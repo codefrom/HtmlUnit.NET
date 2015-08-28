@@ -18,36 +18,50 @@
  * C# fork v0.1
  * 
  */
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-using HtmlUnit.Helpers;
 namespace HtmlUnit.com.gargoylesoftware.htmlunit
 {
     /// <summary>
-    /// An abstract page that represents some content returned from a server.
-    /// @version $Revision: 10875 $
+    /// An adapter for the WebWindowListener interface.
+    /// @version $Revision: 10772 $
     /// @author <a href="mailto:mbowler@GargoyleSoftware.com">Mike Bowler</a>
-    /// @author David K. Taylor
-    /// @author Marc Guillemot
-    /// @author Ronald Brill
     /// </summary>
-    public interface IPage {
+    public class WebWindowAdapter : IWebWindowListener
+    {
         /// <summary>
-        /// Initialize this page.
-        /// This method gets called when a new page is loaded and you should probably never
-        /// need to call it directly.
-        /// @throws IOException if an IO problem occurs
+        /// Creates an instance.
         /// </summary>
-        void Initialize();
+        public WebWindowAdapter()
+        {
+        }
+
 
         /// <summary>
-        /// Clean up this page.
-        /// This method gets called by the web client when an other page is loaded in the window
-        /// and you should probably never need to call it directly
+        /// A web window has been opened.
         /// </summary>
-        void CleanUp();
+        /// <param name="e">the event</param>
+        public void WebWindowOpened(WebWindowEvent e)
+        {
+        }
 
-        public WebResponse WebResponse { get; }
-        public IWebWindow EnclosingWindow { get; }
-        public URL Url { get; }
+        /// <summary>
+        /// The contents of a web window has been changed.
+        /// </summary>
+        /// <param name="e">the event</param>
+        public void WebWindowContentChanged(WebWindowEvent e)
+        {
+        }
+
+        /// <summary>
+        /// A web window has been closed.
+        /// </summary>
+        /// <param name="e">the event</param>
+        public void WebWindowClosed(WebWindowEvent e)
+        {
+        }
     }
 }
