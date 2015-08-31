@@ -5,8 +5,7 @@ using System.Text;
 
 namespace HtmlUnit.Helpers
 {
-    public static class TextUtil
+    public class ByteArrayInputStream: InputStream
     {
-        public static const String DEFAULT_CHARSET = "UTF-8";
     }
 }

@@ -49,5 +49,7 @@ namespace HtmlUnit.com.gargoylesoftware.htmlunit
         public WebResponse WebResponse { get; }
         public IWebWindow EnclosingWindow { get; }
         public URL Url { get; }
+
+        public bool IsHtmlPage();
     }
 }

@@ -29,6 +29,19 @@ com.gargoylesoftware.htmlunit\                      -
   ImmediateRefreshHandler                       +
   DialogWindow                                  +
   WebWindowImpl                                 +
+  Version                                       +
+  NicelyResynchronizingAjaxController           +
+  StorageHolder                                 +
+  DownloadedContent                             +
+  StringWebResponse                             +
+  TextUtil                                      +
+  WaitingRefreshHandler                         +
+  TopLevelWindow                                +
+  WebWindowEvent                                -!
+  PluginConfiguration                           +
+  ScriptResult                                  +
+  ProxyConfig                                   +
+  History                                       +
   
   DefaultPageCreator.cs                         -
   HttpMethod.cs                                 +

@@ -99,7 +99,7 @@ namespace HtmlUnit.com.gargoylesoftware.htmlunit
             }
         }
 
-        public bool isHtmlPage()
+        public bool IsHtmlPage()
         {
             return false;
         }
